@@ -22,7 +22,7 @@ public class ReadText {
                 int a = Integer.parseInt(line.split(" ")[0]);
                 int b = Integer.parseInt(line.split(" ")[1]);
                 shape.addPoint(a,b);
-                if(shape.contPoints == shape.nPoints) flag = 2;
+                if(shape.contPoints == shape.num_puntos) flag = 2;
                 continue;
             }
             if(flag == 2){
@@ -35,7 +35,7 @@ public class ReadText {
                 int a = Integer.parseInt(line.split(" ")[0]);
                 int b = Integer.parseInt(line.split(" ")[1]);
                 shape.addEdge(a, b);
-                if (shape.contEdges == shape.nEdges) flag = 4;
+                if (shape.contEdges == shape.num_lados) flag = 4;
             }
         }
         return shape;

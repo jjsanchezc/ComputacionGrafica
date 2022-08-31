@@ -166,7 +166,7 @@ public class clipping
 
             }
             xn1 = carLinex1 + p2 * rn1;
-            yn1 = carLiney1 + p4 * rn1; // computing new points
+            yn1 = carLiney1 + p4 * rn1; // computing new puntos
 
             xn2 = carLinex1 + p2 * rn2;
             yn2 = carLiney1 + p4 * rn2;

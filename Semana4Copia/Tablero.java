@@ -17,12 +17,12 @@ public class Tablero extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setStroke(new BasicStroke(5));
-        for (Lado s:shape.edges
+        for (Lado s:shape.lados
              ) {
-            int x1 = shape.points[s.a-1].x;
-            int y1 = shape.points[s.a-1].y;
-            int x2 = shape.points[s.b-1].x;
-            int y2 = shape.points[s.b-1].y;
+            int x1 = shape.puntos[s.a-1].x;
+            int y1 = shape.puntos[s.a-1].y;
+            int x2 = shape.puntos[s.b-1].x;
+            int y2 = shape.puntos[s.b-1].y;
             g2d.drawLine(x1,y1,x2,y2);
         }
     }

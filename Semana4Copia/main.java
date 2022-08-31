@@ -147,7 +147,7 @@ public class main {
     }
 
     public static void move (int type) {
-        for (Punto p:shape.points
+        for (Punto p:shape.puntos
         ) {
             if(type == 1) p.setYFromCart(p.getYCart()+TRASLATION_DELTA);
             if(type == 2) p.setYFromCart(p.getYCart()-1*TRASLATION_DELTA);
