@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.Scanner;
 
 public class ReadText {
-    public static Shape read() throws Exception{
-        File doc = new File("C:\\Users\\user\\OneDrive\\Documents\\ing.sistemas\\SEMESTRE6\\ComputacionGrafica\\Entregas\\Semana4Copia\\info.txt");
+    public static Forma read() throws Exception{
+        File doc = new File("C:\\Users\\user\\OneDrive\\Documents\\ing.sistemas\\SEMESTRE6\\ComputacionGrafica\\Entregas\\ComputacionGrafica\\Semana4Copia\\info.txt");
         
         Scanner obj = new Scanner(doc);
-        Shape shape = new Shape();
+        Forma shape = new Forma();
 
         int flag = 0;
         while (obj.hasNextLine()){

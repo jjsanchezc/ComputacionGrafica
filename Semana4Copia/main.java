@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class main {
-    public static Shape shape;
-    public static Board board;
+    public static Forma shape;
+    public static Tablero board;
 
     public static final String IMG_PATH = "src/img/";
 
@@ -32,7 +32,7 @@ public class main {
         panel.setLayout(null);
 
         //Agregar panel que servirá como tablero donde estará la figura
-        board = new Board(shape);
+        board = new Tablero(shape);
         board.setBackground(Color.WHITE);
         board.setSize(600,400);
         panel.add(board);
@@ -147,7 +147,7 @@ public class main {
     }
 
     public static void move (int type) {
-        for (Point p:shape.points
+        for (Punto p:shape.points
         ) {
             if(type == 1) p.setYFromCart(p.getYCart()+TRASLATION_DELTA);
             if(type == 2) p.setYFromCart(p.getYCart()-1*TRASLATION_DELTA);
