@@ -16,10 +16,8 @@ public class main {
     public static final double SCALE_DELTA_SMALL = 0.8;
     public static final double ROTATION_DELTA = 10;
 
-
-
-    public static void main(String[] args) throws Exception{
-        //Creamos la figura con base al txt
+    public static void main(String[] args) throws Exception {
+        // Creamos la figura con base al txt
         shape = ReadText.read();
 
         // Crear un nuevo Frame
@@ -28,22 +26,22 @@ public class main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Agregar un JPanel principal
         JPanel panel = new JPanel();
-        panel.setSize(300,300);
+        panel.setSize(300, 300);
         panel.setLayout(null);
 
-        //Agregar panel que servirá como tablero donde estará la figura
+        // Agregar panel que servirá como tablero donde estará la figura
         board = new Tablero(shape);
         board.setBackground(Color.WHITE);
-        board.setSize(600,400);
+        board.setSize(600, 400);
         panel.add(board);
 
-        //Agregar panel para los botones
+        // Agregar panel para los botones
         JPanel nav = new JPanel();
         nav.setBackground(Color.ORANGE);
-        nav.setBounds(0,400,600,200);
+        nav.setBounds(0, 400, 600, 200);
         nav.setLayout(null);
 
-        //Crear y agregar los botones al nav
+        // Crear y agregar los botones al nav
         JButton btn1 = new JButton();
         btn1.addActionListener(new ActionListener() {
             @Override
@@ -51,7 +49,7 @@ public class main {
                 move(1);
             }
         });
-        btn1.setBounds(100,10,64,64);
+        btn1.setBounds(100, 10, 64, 64);
         btn1.setIcon(new ImageIcon(IMG_PATH + "flecha-hacia-arriba.png"));
 
         JButton btn2 = new JButton();
@@ -61,7 +59,7 @@ public class main {
                 move(2);
             }
         });
-        btn2.setBounds(100,80,64,64);
+        btn2.setBounds(100, 80, 64, 64);
         btn2.setIcon(new ImageIcon(IMG_PATH + "flecha-hacia-abajo.png"));
 
         JButton btn3 = new JButton();
@@ -71,7 +69,7 @@ public class main {
                 move(3);
             }
         });
-        btn3.setBounds(31,44,64,64);
+        btn3.setBounds(31, 44, 64, 64);
         btn3.setIcon(new ImageIcon(IMG_PATH + "flecha-hacia-izq.png"));
 
         JButton btn4 = new JButton();
@@ -81,7 +79,7 @@ public class main {
                 move(4);
             }
         });
-        btn4.setBounds(169,44,64,64);
+        btn4.setBounds(169, 44, 64, 64);
         btn4.setIcon(new ImageIcon(IMG_PATH + "flecha-hacia-der.png"));
 
         JButton btn5 = new JButton();
@@ -91,7 +89,7 @@ public class main {
                 move(5);
             }
         });
-        btn5.setBounds(270,44,64,64);
+        btn5.setBounds(270, 44, 64, 64);
         btn5.setIcon(new ImageIcon(IMG_PATH + "atras.png"));
 
         JButton btn6 = new JButton();
@@ -101,7 +99,7 @@ public class main {
                 move(6);
             }
         });
-        btn6.setBounds(350,44,64,64);
+        btn6.setBounds(350, 44, 64, 64);
         btn6.setIcon(new ImageIcon(IMG_PATH + "adelante.png"));
 
         JButton btn7 = new JButton();
@@ -111,7 +109,7 @@ public class main {
                 move(7);
             }
         });
-        btn7.setBounds(460,10,64,64);
+        btn7.setBounds(460, 10, 64, 64);
         btn7.setIcon(new ImageIcon(IMG_PATH + "anadir.png"));
 
         JButton btn8 = new JButton();
@@ -121,7 +119,7 @@ public class main {
                 move(8);
             }
         });
-        btn8.setBounds(460,80,64,64);
+        btn8.setBounds(460, 80, 64, 64);
         btn8.setIcon(new ImageIcon(IMG_PATH + "menos.png"));
 
         nav.add(btn1);
@@ -134,7 +132,7 @@ public class main {
         nav.add(btn8);
         panel.add(nav);
 
-        //Agregar panel general
+        // Agregar panel general
         frame.add(panel);
 
         // Asignarle tamaño
@@ -146,36 +144,38 @@ public class main {
         frame.setVisible(true);
     }
 
-    public static void move (int type) {
-        for (Punto p:shape.puntos
-        ) {
-            if(type == 1) p.setYFromCart(p.getYCart()+TRASLATION_DELTA);
-            if(type == 2) p.setYFromCart(p.getYCart()-1*TRASLATION_DELTA);
-            if(type == 3) p.setXFromCart(p.getXCart()-1*TRASLATION_DELTA);
-            if(type == 4) p.setXFromCart(p.getXCart()+TRASLATION_DELTA);
-            if(type == 5) {
-                double x = p.getXCart()*Math.cos(-1*ROTATION_DELTA) - p.getYCart()*Math.sin(-1*ROTATION_DELTA);
-                double y = p.getXCart()*Math.sin(-1*ROTATION_DELTA) + p.getYCart()*Math.cos(-1*ROTATION_DELTA);
+    public static void move(int type) {
+        for (Punto p : shape.puntos) {
+            if (type == 1)
+                p.setYFromCart(p.getYCart() + TRASLATION_DELTA);
+            if (type == 2)
+                p.setYFromCart(p.getYCart() - 1 * TRASLATION_DELTA);
+            if (type == 3)
+                p.setXFromCart(p.getXCart() - 1 * TRASLATION_DELTA);
+            if (type == 4)
+                p.setXFromCart(p.getXCart() + TRASLATION_DELTA);
+            if (type == 5) {
+                double x = p.getXCart() * Math.cos(-1 * ROTATION_DELTA) - p.getYCart() * Math.sin(-1 * ROTATION_DELTA);
+                double y = p.getXCart() * Math.sin(-1 * ROTATION_DELTA) + p.getYCart() * Math.cos(-1 * ROTATION_DELTA);
                 p.setXFromCart(x);
                 p.setYFromCart(y);
             }
-            if(type == 6) {
-                double x = p.getXCart()*Math.cos(ROTATION_DELTA) - p.getYCart()*Math.sin(ROTATION_DELTA);
-                double y = p.getXCart()*Math.sin(ROTATION_DELTA) + p.getYCart()*Math.cos(ROTATION_DELTA);
+            if (type == 6) {
+                double x = p.getXCart() * Math.cos(ROTATION_DELTA) - p.getYCart() * Math.sin(ROTATION_DELTA);
+                double y = p.getXCart() * Math.sin(ROTATION_DELTA) + p.getYCart() * Math.cos(ROTATION_DELTA);
                 p.setXFromCart(x);
                 p.setYFromCart(y);
             }
-            if(type == 7) {
-                p.setXFromCart(p.getXCart()*SCALE_DELTA_BIG);
-                p.setYFromCart(p.getYCart()*SCALE_DELTA_BIG);
+            if (type == 7) {
+                p.setXFromCart(p.getXCart() * SCALE_DELTA_BIG);
+                p.setYFromCart(p.getYCart() * SCALE_DELTA_BIG);
             }
-            if(type == 8) {
-                p.setXFromCart(p.getXCart()*SCALE_DELTA_SMALL);
-                p.setYFromCart(p.getYCart()*SCALE_DELTA_SMALL);
+            if (type == 8) {
+                p.setXFromCart(p.getXCart() * SCALE_DELTA_SMALL);
+                p.setYFromCart(p.getYCart() * SCALE_DELTA_SMALL);
             }
         }
         board.repaintBoard();
     }
 
 }
-

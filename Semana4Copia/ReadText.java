@@ -14,7 +14,7 @@ public class ReadText {
         while (obj.hasNextLine()){
             String line = obj.nextLine();
             if(flag == 0){
-                shape.setNPoints(Integer.parseInt(line));
+                shape.setnum_puntos(Integer.parseInt(line));
                 flag++;
                 continue;
             }
@@ -26,7 +26,7 @@ public class ReadText {
                 continue;
             }
             if(flag == 2){
-                shape.setNEdges(Integer.parseInt(line));
+                shape.setnum_lados(Integer.parseInt(line));
                 flag++;
                 continue;
             }
